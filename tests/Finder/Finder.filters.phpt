@@ -61,20 +61,3 @@ test(function() { // date filter
 	$finder = Finder::findFiles('*')->date('> 2020-01-02')->from('files');
 	Assert::same(array(), export($finder));
 });
-
-
-test(function() { // custom filters
-	Finder::extensionMethod('length', function($finder, $length) {
-		return $finder->filter(function($file) use ($length) {
-			return strlen($file->getFilename()) == $length;
-		});
-	});
-});
-
-
-test(function() {
-	$finder = Finder::findFiles('*')->length(6)->from('files');
-	Assert::same(array(
-		'files/subdir/readme',
-	), export($finder));
-});

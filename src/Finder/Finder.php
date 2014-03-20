@@ -23,7 +23,7 @@ use Nette,
  *
  * @author     David Grudl
  */
-class Finder extends Nette\Object implements \IteratorAggregate
+class Finder implements \IteratorAggregate
 {
 	/** @var array */
 	private $paths = array();
