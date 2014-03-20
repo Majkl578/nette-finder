@@ -26,4 +26,4 @@ $finder = Finder::findFiles('*');
 
 Assert::exception(function() use ($finder) {
 	$finder->getIterator();
-}, 'Nette\InvalidStateException', 'Call in() or from() to specify directory to search.');
+}, 'InvalidArgumentException', 'Call in() or from() to specify directory to search.');
